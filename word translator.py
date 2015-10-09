@@ -10,4 +10,4 @@ if len(original) > 0 and original.isalpha():
     new_word = answer + first + pyg
     print new_word
 else:
-    print 'Empty! You didn''t type in any word son!'
+    print 'You didn''t type in any word son!'
