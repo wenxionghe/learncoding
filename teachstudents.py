@@ -37,15 +37,42 @@ def average(numbers):
     return total
 
 
-def get_average(student):
+def get_average(students):
     # average of homework, quizzes and tests
-    homework = average(student["homework"])
-    quizzes = average(student["quizzes"])
-    tests = average(student["tests"])
+    homework = average(students["homework"])
+    quizzes = average(students["quizzes"])
+    tests = average(students["tests"])
     # calculate weighted average
-    return 0.1 * average(student["homework"]) + 0.3 * average(student["quizzes"]) + 0.6 * average(student["tests"])
+    return 0.1 * average(students["homework"]) + 0.3 * average(students["quizzes"]) + 0.6 * average(students["tests"])
+
+
+def get_letter_grade(score):
+    if score >= 90:
+        return "A"
+    elif score >= 80 and score < 90:
+        return "B"
+    elif score >= 70 and score < 80:
+        return "C"
+    elif score >= 60 and score < 70:
+        return "D"
+    else:
+        return "F"
+
+
+def get_class_average(students):
+    results = []
+    for element in students:
+        get_average(element)
+        results.append(get_average(element))
+    return average(results)
 
 
 print(get_average(lloyd))
 print(get_average(alice))
 print(get_average(tyler))
+
+print(get_letter_grade(get_average(lloyd)))
+print(get_letter_grade(get_average(alice)))
+print(get_letter_grade(get_average(tyler)))
+
+print(get_class_average(students))
